@@ -1,0 +1,93 @@
+html, body, #app{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+
+// #root::Before Wrapper
+#main {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    position: absolute;
+    // Header
+    // Banner copyrights and introduction screen
+    #quotoHeader {
+        width: 100%;
+        background-image: url('../Images/header.png');
+        background-position: 50% 75%;
+        background-size: 1980px;
+        background-repeat: no-repeat;
+        opacity: .9;
+        height: 10%;
+        #quotoJet {
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+    }
+    // Pagination
+    // Main content that displays Overview, Estimates, and Settings
+    #attachedMenu {
+        position: relative;
+        overflow: hidden;
+        height: 90% !important;
+        a.item {
+            font-size: 16px;
+            color: inherit;
+            transition: color ease-in-out .25s ;
+        }
+        a.item:hover {
+            color: rgba(107, 107, 107, 0.952);
+        }
+
+        // Specified Menu Items
+
+        // Main Segment 
+        // Controls all of the applications that can be loaded
+        #mainSegment{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            // Estimates App
+            // Displays all current Estimates
+            // #estimate {
+                
+            // }
+            // Overview App
+            // Displays the currently selected projects estimate
+            #quoteOverview {
+                align-self: baseline !important;
+                width: 100%;
+                height:95%;
+                #overviewContainer {
+                    height: 90%;
+                }
+            }
+
+            // Settings App
+            // Global settings menu
+            #settings {
+                margin: 0 auto; 
+                text-align: center;
+                padding: 40px;
+                border: 1px solid rgba(163, 163, 163, 0.397);
+                box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+                * {
+                    margin: 0 auto;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
