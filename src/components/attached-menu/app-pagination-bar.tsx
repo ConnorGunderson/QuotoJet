@@ -13,7 +13,7 @@ interface Props {
 
 
 export const AttachedMenu = (props: Props) => {
-  const [activeItem, setActiveItem] = useState('Estimates')
+  const [activeItem, setActiveItem] = useState('Overview')
   const handleClick = (e: any) => setActiveItem(e.target.innerText)
   return (
     <div id={props.id}>
@@ -55,7 +55,7 @@ export const AttachedMenu = (props: Props) => {
           position='right'
         />
       </Menu>
-      <Segment attached='bottom' id='mainSegment'>
+      <Segment attached='bottom' id='mainSegment' basic padded>
         {
             activeItem === 'Estimates'
           ? <EstimateApp id={'estimate'} />

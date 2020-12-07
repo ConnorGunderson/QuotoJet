@@ -1,19 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 const _ = require('lodash')
 
-
-
 const visSlice = createSlice({
     name: 'vistabs',
     // Holds all the names of 
     // the tabs that should be visible
     initialState: {
-        _tabList: [],
+        _tabList: ['Part Overall', 'Inserts', 'EDM Rib Areas', 'Special Tools', 'Unitized Manifolds', 'Breakdown'],
     },
     reducers: {
-        SHOW_TAB: (state:any, action:any) => state._tabList.join(action.payload) 
+        SHOW_TAB: (state, action) => {
+            state._tabList.push(action.payload)
+        }
         ,
-        HIDE_TAB: (state:any, action:any) => _.remove(state._tabList, action.payload)
+        HIDE_TAB: (state, action) => {
+            _.pull(state._tabList, action.payload)
+        }
     }
 })
 

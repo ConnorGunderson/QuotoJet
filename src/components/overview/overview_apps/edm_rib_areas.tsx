@@ -5,17 +5,19 @@ export const EdmRib = () => {
     return (
         <div>
             <Baseline title='# of EDM Areas (Ribs)'>
-                <Form.Field 
-                    type='number'
-                    label='Amount'
-                    control='input'
-                />
-                <Segment basic>
-                    <Divider horizontal>Subtotal</Divider>
-                    <Segment raised>
-                        0  
+                <Form>
+                    <Form.Field 
+                        type='number'
+                        label='Amount'
+                        control='input'
+                    />
+                    <Segment basic>
+                        <Divider horizontal>Subtotal</Divider>
+                        <Segment raised>
+                            0  
+                        </Segment>
                     </Segment>
-                </Segment>
+                </Form>
             </Baseline>
         </div>
     )

@@ -36,52 +36,55 @@ export const Inserts = () => {
     }
     return (
         <Baseline title='Inserts'>
-            <Form.Group>
-                <Form.Select
-                    fluid
-                    label={'Insert Material'}
-                    onChange={(e) => handleChange(e)}
-                    placeholder='Select Material'
-                    options={matOptions}
-                />
-            </Form.Group>
-            <Form widths='equal' id='insertForm'>
+            <Form>
+                
                 <Form.Group>
-                    <Accordion as={Form.Field} panels={dimensionPanels} />
+                    <Form.Select
+                        fluid
+                        label={'Insert Material'}
+                        onChange={(e) => handleChange(e)}
+                        placeholder='Select Material'
+                        options={matOptions}
+                    />
                 </Form.Group>
-                <Button
-                    onClick={(e:any) => addInsert(e)}
-                    type={'submit'}
-                    basic
-                    color='green'
-                    compact
-                >
-                    Add
-                </Button>
-                <Button
-                    onClick={(e) => delInsert(e)}
-                    type={'submit'}
-                    basic
-                    color='red'
-                    compact
-                >
-                    Delete
-                </Button>
+                <Form widths='equal' id='insertForm'>
+                    <Form.Group>
+                        <Accordion as={Form.Field} panels={dimensionPanels} />
+                    </Form.Group>
+                    <Button
+                        onClick={(e:any) => addInsert(e)}
+                        type={'submit'}
+                        basic
+                        color='green'
+                        compact
+                    >
+                        Add
+                    </Button>
+                    <Button
+                        onClick={(e) => delInsert(e)}
+                        type={'submit'}
+                        basic
+                        color='red'
+                        compact
+                    >
+                        Delete
+                    </Button>
+                </Form>
+                <Segment basic>
+                    <Divider fitted horizontal># of Inserts</Divider>
+                    <Segment raised>
+                        {_sumInserts}
+                    </Segment>
+                    <Divider fitted horizontal>CNC Hours</Divider>
+                    <Segment raised>
+                        {_cncTotalHours.toFixed(2)}
+                    </Segment>
+                    <Divider fitted horizontal> Subtotal</Divider>
+                    <Segment raised>
+                        {_subtotal.toFixed(2)}
+                    </Segment>
+                </Segment>
             </Form>
-            <Segment basic>
-                <Divider fitted horizontal># of Inserts</Divider>
-                <Segment raised>
-                    {_sumInserts}
-                </Segment>
-                <Divider fitted horizontal>CNC Hours</Divider>
-                <Segment raised>
-                    {_cncTotalHours.toFixed(2)}
-                </Segment>
-                <Divider fitted horizontal> Subtotal</Divider>
-                <Segment raised>
-                    {_subtotal.toFixed(2)}
-                </Segment>
-            </Segment>
         </Baseline>
     )
 }

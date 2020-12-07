@@ -10,22 +10,24 @@ export const SpecTools  = () => {
     return (
         <section>
             <Baseline title='Special Tool Features'>
-                <Form.Group grouped>
-                    <Checkbox 
-                        label='Heated Tool?'
-                        value={'heated'}
-                        onClick={() => handleClick}
-                    />
-                    <Form.Input 
-                        label='Heated Tool Total'
-                    />
-                    <Form.Input
-                        label='Misc. Costs'
-                    />
-                    <Form.TextArea 
-                        label="Description"
-                    />
-                </Form.Group>
+                <Form>
+                    <Form.Group grouped>
+                        <Checkbox 
+                            label='Heated Tool?'
+                            value={'heated'}
+                            onClick={() => handleClick}
+                        />
+                        <Form.Input 
+                            label='Heated Tool Total'
+                        />
+                        <Form.Input
+                            label='Misc. Costs'
+                        />
+                        <Form.TextArea 
+                            label="Description"
+                        />
+                    </Form.Group>
+                </Form>
             </Baseline>
         </section>
     )

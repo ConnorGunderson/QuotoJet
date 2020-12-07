@@ -1,22 +1,30 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
 import { SHOW_TAB, HIDE_TAB } from '../../features/overview-logic/vis_logic'
-const _ = require('lodash')
+import _ from 'lodash'
+import moment from 'moment'
 
 
 const nameList = [
-  'Part Overall', 'Inserts', 'EDM Rib Areas', 'Special Tools', 'Unitized Manifolds', 'Breakdown'
+  'Unitized Manifolds',
+  'Special Tools',
+  'Part Overall',
+  'Inserts',
+  'EDM Rib Areas',
+  'Breakdown'
 ]
 
 
-export const QuoteSelectionMenu = () => {
+export const QuoteSelectionMenu = (props:any) => {
   const { _tabList } = useSelector((state: RootStateOrAny) => state.tabs)
   const dispatch = useDispatch()
+  
+  
+
 
   const handleItemClick =  (e : any) => {
     e.preventDefault()
-    console.log(_tabList, e.target.innerText)
     const targ = e.target.innerText;
     if (!_tabList.includes(targ)) {
       dispatch(SHOW_TAB(targ))
@@ -26,19 +34,23 @@ export const QuoteSelectionMenu = () => {
   }
   
   return (
+    <div>
       <Menu text>
         {
-          nameList.map((i: any, index) => {
+          nameList.map((i: any, index: any) => {
             return (
-              <Menu.Item 
-                key={index}
-                name={i}
-                onClick={(e) => handleItemClick(e)}
-              />
+              <div style={props.nameList.includes(i) ? {color:'#b52a2a'}: {}}>
+                <Menu.Item
+                  key={index}
+                  name={i}
+                  onClick={(e) => handleItemClick(e)}
+                />
+              </div>
             )
           })
         }
       </Menu>
+    </div>
   )
 }
 

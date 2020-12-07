@@ -20,7 +20,7 @@ html, body, #app{
         width: 100%;
         background-image: url('../Images/header.png');
         background-position: 50% 75%;
-        background-size: 1980px;
+        background-size: cover;
         background-repeat: no-repeat;
         opacity: .9;
         height: 10%;
@@ -36,8 +36,6 @@ html, body, #app{
     // Main content that displays Overview, Estimates, and Settings
     #attachedMenu {
         position: relative;
-        overflow: hidden;
-        height: 90% !important;
         a.item {
             font-size: 16px;
             color: inherit;
@@ -52,9 +50,8 @@ html, body, #app{
         // Main Segment 
         // Controls all of the applications that can be loaded
         #mainSegment{
-            height: 100%;
-            display: flex;
             align-items: center;
+            min-height: 1000px;
             // Estimates App
             // Displays all current Estimates
             // #estimate {
@@ -65,16 +62,13 @@ html, body, #app{
             #quoteOverview {
                 align-self: baseline !important;
                 width: 100%;
-                height:95%;
                 #overviewContainer {
-                    max-height: 90%;
                     #insertForm {
                         text-align: center;
                     }
                 }
                 
             }
-
             // Settings App
             // Global settings menu
             #settings {
@@ -92,4 +86,8 @@ html, body, #app{
     }
 }
 
+
+input {
+    box-sizing: border-box;
+}
 
