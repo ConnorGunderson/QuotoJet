@@ -13,7 +13,6 @@ function App() {
       </Container>
   );
 }
-
 export default App;
 
 const QuotoHeader = () => {

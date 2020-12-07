@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const manifoldSlice = createSlice({
     name: 'manifoldSlice',
-    initialState: [0, 0, true], // amount of drops for the manifold
+    initialState: [6000, 0, true], // amount of drops for the manifold
     reducers: {
         enableValve: (state) => [6000, state[1], true],
         disableValve: (state) => [4150, state[1], false],

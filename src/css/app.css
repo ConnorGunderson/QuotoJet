@@ -44,7 +44,9 @@ html, body, #app {
         width: 100%;
         height: 95%; }
         #main #attachedMenu #mainSegment #quoteOverview #overviewContainer {
-          height: 90%; }
+          max-height: 90%; }
+          #main #attachedMenu #mainSegment #quoteOverview #overviewContainer #insertForm {
+            text-align: center; }
       #main #attachedMenu #mainSegment #settings {
         margin: 0 auto;
         text-align: center;

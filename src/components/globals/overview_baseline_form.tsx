@@ -6,7 +6,7 @@ export const Baseline = (props: any) => {
             <Header dividing>
                 {props.title}
             </Header>
-            <Form className='overviewForm' widths={'equal'} >
+            <Form onSubmit={(e:any) => {e.preventDefault()}} className='overviewForm' widths={'equal'} >
                 {props.children}
             </Form>
         </Segment>

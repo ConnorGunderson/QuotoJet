@@ -3,22 +3,22 @@ import React from 'react'
 // const _ = require('lodash')
 
 export const matOptions = [
-    { key: '6061A', text: '6061 Aluminum', value: 'foo' },
-    { key: '7075A', text: '7075 Aluminum', value: 'foo' },
-    { key: 'P20S', text: 'P20 Steel', value: 'foo' }
+    { key: '6061A', text: '6061 Aluminum', value: '6061 Aluminum' },
+    { key: '7075A', text: '7075 Aluminum', value: '7075 Aluminum' },
+    { key: 'P20S', text: 'P20 Steel', value: 'P20 Steel' }
 ]
 
 export const mudOptions = [
-    { key: 'none', text: 'None', value: 'foo' },
+    { key: 'none', text: 'None', value: 'None' },
     { key: '4x6', text: '4 x 6', value: '4 x 6' },
-    { key: '8x10', text: '8 x 10', value: 'foo' }
+    { key: '8x10', text: '8 x 10', value: '8 x 10' }
 ]
 export const surfaceOptions = [
-    { key: '320B3', text: '320 B3 Paper', value: 'foo' },
-    { key: 'sandblast', text: 'SandBlast', value: 'foo' },
-    { key: '400B2', text: '400 B2 Paper', value: 'foo' },
-    { key: '600B1', text: '600 B1 Paper', value: 'foo' },
-    { key: 'DBA1', text: 'Diamond Buff A1', value: 'foo' }
+    { key: '320B3', text: '320 B3 Paper', value: '320 B3 Paper' },
+    { key: 'sandblast', text: 'SandBlast', value: 'SandBlast' },
+    { key: '400B2', text: '400 B2 Paper', value: '400 B2 Paper' },
+    { key: '600B1', text: '600 B1 Paper', value: '600 B1 Paper' },
+    { key: 'DBA1', text: 'Diamond Buff A1', value: 'Diamond Buff A1' }
 ]
 
 
@@ -140,5 +140,6 @@ export const breakdownPanels = [
                 </Table>
             )
         }
-    }
+    },
 ]
+

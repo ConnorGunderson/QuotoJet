@@ -19,34 +19,40 @@ export const AttachedMenu = (props: Props) => {
     <div id={props.id}>
       <Menu attached='top' borderless >
         <Menu.Item
+          key={1}
           name='Estimates'
           active={activeItem === 'Estimates'}
           onClick={(e) => handleClick(e)}
         />
         <Menu.Item
+          key={2}
           name='Overview'
           active={activeItem === 'Overview'}
           onClick={(e) => handleClick(e)}
           position='left'
         />
         <Menu.Item
+          key={3}
           id='company'
           content={'COMPANY'}
         />
         <Menu.Item
+          key={4}
           id='product'
           content={'PRODUCT_NAME'}
         />
         <Menu.Item
+          key={5}
           id='total'
           content={'TOTAL'}
           position='right'
         />
         <Menu.Item
+          key={6}
           name='Settings'
           active={activeItem === 'Settings'}
-          onClick={() => handleClick}
-          // position='right'
+          onClick={(e) => handleClick(e)}
+          position='right'
         />
       </Menu>
       <Segment attached='bottom' id='mainSegment'>
