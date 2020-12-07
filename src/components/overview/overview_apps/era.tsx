@@ -1,5 +1,5 @@
 import { Form, Segment, Divider } from 'semantic-ui-react'
-import { Baseline } from '../../globals/overview_baseline_form'
+import { Baseline } from '../ov_baseline'
 
 export const EdmRib = () => {
     return (

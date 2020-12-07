@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Segment, Input, Form, Divider, Checkbox } from 'semantic-ui-react'
-import { Baseline } from '../../globals/overview_baseline_form'
+import { Segment, Form, Divider, Checkbox } from 'semantic-ui-react'
+import { Baseline } from '../ov_baseline'
 import { enableValve, disableValve, alterDrops } from '../../../features/overview-logic/man_logic'
 
 

@@ -1,6 +1,6 @@
 import { Form, Divider, Accordion, Segment} from 'semantic-ui-react'
-import { Baseline } from '../../globals/overview_baseline_form'
-import { matOptions, dimensionPanels, mudOptions, surfaceOptions } from '../../globals/globalVars'
+import { Baseline } from '../ov_baseline'
+import { matOptions, dimensionPanels, mudOptions, surfaceOptions } from '../../globals/g_vars'
 
 export const PartOverall = (props: any) => {
     return (

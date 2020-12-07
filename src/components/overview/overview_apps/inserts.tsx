@@ -1,7 +1,7 @@
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { Segment, Button, Accordion, Form, Divider } from 'semantic-ui-react'
-import { matOptions, dimensionPanels } from '../../globals/globalVars'
-import { Baseline } from '../../globals/overview_baseline_form'
+import { matOptions, dimensionPanels } from '../../globals/g_vars'
+import { Baseline } from '../ov_baseline'
 import { CHANGE_MATERIAL, ADD_INSERT, DELETE_LAST } from '../../../features/overview-logic/ins_logic'
 
 export const Inserts = () => {
