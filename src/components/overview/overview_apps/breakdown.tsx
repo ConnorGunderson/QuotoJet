@@ -85,11 +85,13 @@ export const Breakdown = () => {
                                 </Table.Row>
                             </Table.Header>
                             <Table.Body>
-                                {_inserts.map(
+                                {
+                                _inserts.map(
                                     (a:any, i:number) => {
+                                        const boole = i === _inserts.length-1 ? true : false
                                         return (
                                             <Table.Row key={i}>
-                                                <Table.Cell>{i}</Table.Cell>
+                                                <Table.Cell positive={boole}> {i}</Table.Cell>
                                                 <Table.Cell>{a[0]}</Table.Cell>
                                                 <Table.Cell>{a[1]}</Table.Cell>
                                                 <Table.Cell>{a[2]}</Table.Cell>
@@ -98,6 +100,7 @@ export const Breakdown = () => {
                                                 <Table.Cell>{a[7]}</Table.Cell>
                                                 <Table.Cell>{a[5].toFixed(2)}</Table.Cell>
                                                 <Table.Cell>{a[6].toFixed(2)}</Table.Cell>
+                                                <Table.Cell positive={boole}>{boole ? <i>Last Added</i> : undefined}</Table.Cell>
                                             </Table.Row>
                                         )
                                     }
