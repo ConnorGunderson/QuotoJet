@@ -1,6 +1,6 @@
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
-import { SHOW_TAB, HIDE_TAB } from '../../features/overview-logic/vis_logic'
+import { SHOW_TAB, HIDE_TAB } from '../../features/overview-logic/visual_logic'
 
 
 const nameList = [
