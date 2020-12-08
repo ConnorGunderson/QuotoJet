@@ -1,6 +1,5 @@
 import { Form, Table } from 'semantic-ui-react'
 import React from 'react'
-// const _ = require('lodash')
 
 export const matOptions = [
     { key: '6061A', text: '6061 Aluminum', value: '6061 Aluminum' },
@@ -20,8 +19,6 @@ export const surfaceOptions = [
     { key: '600B1', text: '600 B1 Paper', value: '600 B1 Paper' },
     { key: 'DBA1', text: 'Diamond Buff A1', value: 'Diamond Buff A1' }
 ]
-
-
 
 export const dimensionPanels = [
     {
@@ -73,8 +70,8 @@ export const breakdownPanels = [
                             <Table.HeaderCell content='Block Price'/>
                             <Table.HeaderCell content='Core Cavity & Inserts CNC'/>
                             <Table.HeaderCell content='# of EDM Areas (Ribs)'/>
-                            <Table.HeaderCell content='Boring Mill Slots, Holes, and Waterlines'/>
-                            <Table.HeaderCell content='Rails Material and 2D Machining'/>
+                            <Table.HeaderCell content='Boring Mill Slots, Holes, and Water - lines'/>
+                            <Table.HeaderCell content='Rails Material and 2D Machine'/>
                         </Table.Row>
                     </Table.Header>
                 </Table>
@@ -91,7 +88,7 @@ export const breakdownPanels = [
                         <Table.Row>
                             <Table.HeaderCell content='Plates'/>
                             <Table.HeaderCell content='Springs & EJ Pins'/>
-                            <Table.HeaderCell content='2D Machining hrs'/>
+                            <Table.HeaderCell content='2D Machine Hours'/>
                             <Table.HeaderCell content='Benching & Spotting'/>
                             <Table.HeaderCell content='Fittings & Safety Straps'/>
                             <Table.HeaderCell content='Sprue Locator Ring'/>
@@ -133,8 +130,8 @@ export const breakdownPanels = [
                             <Table.HeaderCell content='Total Hours'/>
                             <Table.HeaderCell content='Weeks'/>
                             <Table.HeaderCell content='Design Hours'/>
-                            <Table.HeaderCell content='CNC/3D Machining/EDM Hours'/>
-                            <Table.HeaderCell content='2D Machining & Toolmaking Hours'/>
+                            <Table.HeaderCell content='CNC/3D Machine & EDM Hours'/>
+                            <Table.HeaderCell content='2D Machine & Tooling Hours'/>
                         </Table.Row>
                     </Table.Header>
                 </Table>

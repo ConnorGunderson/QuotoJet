@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-const _ = require('lodash');
+const _ = require('lodash')
 
 const FNCS = {
     ALUM: function(x : number, y: number, z: number, num: number) {
@@ -29,7 +29,8 @@ const defaultState = {
          *  z,
          *  amount,
          *  CNC_HOURS,
-         *  Price Per Insert
+         *  Price Per Insert,
+         *  material
          * ]
          */
     ],
@@ -87,33 +88,33 @@ const insertSlice = createSlice({
              *  payload list [x, y , z, #],
              *  x*y*z,
              *  CNC_HOURS for insert,
-             *  Total for part
+             *  Total for part,
+             *  Material Used
              * ]
              */
+            const _ArrMat = _.split(state._material, ' ')[0] + ' ' + _.head(_.split(state._material, ' ')[1])
+
             state._inserts.push([
                 ...payload,
                 newCube,
                 CNC_CALC(payload, state._material),
-                _insertTotal
+                _insertTotal,
+                _ArrMat
             ])
             // Accumulate all previous values in the array for # of inserts
             // Join with the new value and return new state
-            state._sumInserts =  state._inserts.length !== 1 
-                        ? state._inserts
-                            .reduce(((acc:any, p:any) => acc + p[3]),0) 
-                        : state._inserts
-                            .reduce(((acc:any, p:any) => acc + p[3]),0)
-
+            state._sumInserts =  state._inserts.reduce(((acc:any, p:any) => acc + p[3]),0)
             // FNC_ALUM OR FNC_P20 DEPENDING ON _material
             // RETURN AMOUNT OF HOURS PER EVERY PART
             state._cncTotalHours +=  CNC_CALC(payload, state._material)
 
             state._subtotal += _.last(state._inserts)[6]
+
         },
         DELETE_LAST: (state:any, action:any) => {
             if (state._sumInserts > 0 && state._inserts.length > 0) {
                 const out = state._inserts.pop()
-                state._sumInserts -= 1
+                state._sumInserts -= out[3]
                 state._cncTotalHours -= out[5]
                 if (state._inserts.length === 0) {
                     state._subtotal = 0                    

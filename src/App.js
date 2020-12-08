@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import './css/app.css'
-import { AttachedMenu } from './components/attached-menu/app-pagination-bar'
-import { Container, Statistic } from 'semantic-ui-react'
-import quotojet from './Images/quotojet.png'
-import moment from 'moment'
+import { AttachedMenu } from './components/header-menu/app_bar'
+import { Container } from 'semantic-ui-react'
+import { QuotoHeader } from './components/header-menu/head'
 
 function App() {
   return (
@@ -15,23 +14,3 @@ function App() {
   );
 }
 export default App;
-
-const QuotoHeader = () => {
-  const [time, setTime] = useState(moment().format('MMMM Do YYYY, h:mm:ss a'))
-
-  React.useEffect(() => {
-    let timerId = setInterval(() => tick(), 1000)
-    return function cleanUp() {
-      clearInterval(timerId)
-    }
-  })
-  async function tick() {
-    setTime(moment().format('MMMM Do YYYY, h:mm:ss a'))
-  }
-  return (
-    <Container as={'section'} id={'quotoHeader'}>
-      <img  id='quotoJet' src={quotojet} alt='quotoQuote' />
-      <Statistic floated='right' >{time}</Statistic>
-    </Container>
-  )
-}

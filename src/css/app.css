@@ -14,11 +14,15 @@ html, body, #app {
   #main #quotoHeader {
     width: 100%;
     background-image: url("../Images/header.png");
-    background-position: 50% 75%;
+    background-position: 25% 70%;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: .9;
     height: 10%; }
+    #main #quotoHeader #timer {
+      padding: 10px 10px 0px 0px;
+      font-size: 20px;
+      color: white; }
     #main #quotoHeader #quotoJet {
       height: 100px;
       position: absolute;
