@@ -17,7 +17,7 @@ export const AttachedMenu = (props: Props) => {
   const handleClick = (e: any) => setActiveItem(e.target.innerText)
   return (
     <div id={props.id}>
-      <Menu pointing secondary  stackable>
+      <Menu pointing secondary stackable id='mainMenu'>
         <Menu.Item
           key={1}
           name='Estimates'

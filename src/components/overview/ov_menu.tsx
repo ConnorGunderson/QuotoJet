@@ -36,7 +36,7 @@ export const QuoteSelectionMenu = (props:any) => {
         {
           nameList.map((i: any, index: any) => {
             return (
-              <div style={props.nameList.includes(i) ? {color:'#b52a2a'}: {}}>
+              <div className={props.nameList.includes(i) ? 'headBorder' : undefined } style={props.nameList.includes(i) ? {color:'red'}: {}}>
                 <Menu.Item
                   key={index}
                   name={i}

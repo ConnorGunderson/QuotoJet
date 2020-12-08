@@ -32,7 +32,7 @@ html, body, #app {
       font-size: 16px;
       color: inherit;
       transition: color ease-in-out .25s; }
-    #main #attachedMenu a.item:hover {
+    #main #attachedMenu #mainMenu a.item:hover {
       color: rgba(107, 107, 107, 0.952); }
     #main #attachedMenu #mainSegment {
       align-items: center;
@@ -40,6 +40,24 @@ html, body, #app {
       #main #attachedMenu #mainSegment #quoteOverview {
         align-self: baseline !important;
         width: 100%; }
+        #main #attachedMenu #mainSegment #quoteOverview .headBorder:after {
+          content: "";
+          /* This is necessary for the pseudo element to work. */
+          display: block;
+          /* This will put the pseudo element on its own line. */
+          width: 50%;
+          /* Change this to whatever width you want to have before hover. */
+          margin: 0 auto;
+          text-align: center;
+          padding-top: 1px;
+          /* This creates some space between the element and the border. */
+          border-bottom: 1px solid red;
+          /* This creates the border. Replace black with whatever color you want. */
+          transition: .25s;
+          /* This establishes the amount of time in seconds the animation should take from start to finish */ }
+        #main #attachedMenu #mainSegment #quoteOverview .headBorder:hover:after {
+          width: 100%;
+          /* This will be the new width of your border when on hover */ }
         #main #attachedMenu #mainSegment #quoteOverview #overviewContainer #insertForm {
           text-align: center; }
       #main #attachedMenu #mainSegment #settings {
