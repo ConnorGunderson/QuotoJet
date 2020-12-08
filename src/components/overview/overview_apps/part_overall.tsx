@@ -6,7 +6,7 @@ export const PartOverall = (props: any) => {
     return (
         <section>
             <Baseline title='Part Overall (in)'>
-                <Form>
+                <Form widths='equal'>
                     <Form.Group>
                         <Form.Select
                             fluid

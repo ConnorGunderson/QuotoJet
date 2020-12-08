@@ -1,15 +1,33 @@
 import {createSlice} from '@reduxjs/toolkit'
 const _ = require('lodash')
 
+
+/**
+ * Names space for (6061 Aluminum or 7075) or P20 Steel Aluminum function(s) for determine final cost
+ * @param {number} x:number X-axxis
+ * @param {number} y:number Y-axis
+ * @param {number} z:number Z-axis
+ * @param {number} num:number Number of inserts
+ * @returns {number}
+ */
 const FNCS = {
     ALUM: function(x : number, y: number, z: number, num: number) {
         return Math.pow((x * y * z), .27692814823562) * 3.96589179639605 * num
     },
-    P20: function(x : number, y: number, z: number, num: number) {
+    P20: function(x : number, y: number, z: number, num: number): number {
         return  Math.pow((x * y * z), .27692814823562) * 7.93178359279209 * num
     }
 }
 
+
+
+/**
+ * Destructures list elements of the _insert list and calls the 
+ * function associated with the correct material used
+ * @param {any} insertList:any
+ * @param {any} material:string
+ * @returns {any} 
+ */
 const CNC_CALC = function(insertList:any, material:string) {
     const [X, Y, Z, NUM ] = insertList
     return (
@@ -20,6 +38,7 @@ const CNC_CALC = function(insertList:any, material:string) {
     )
 }
 
+// default state for insert logic slice
 const defaultState = {
     _inserts: [
         /**
@@ -36,7 +55,7 @@ const defaultState = {
          * ]
          */
     ],
-    _material: '',
+    _material: '', 
     _sumInserts: 0,
     _cncTotalHours: 0,
     _subtotal: 0
@@ -45,11 +64,15 @@ const defaultState = {
 
 const insertSlice = createSlice({
     name: 'insert',
-    // Material | Dimensions [4] | # Inserts
-    // CNC Hours | Subtotal 
     initialState: defaultState,
     reducers: {
-        // change the material for the insert selection
+        /**
+         * Takes a string payload and replaces the correct _material attribute
+         * within the state object
+         * @param {any} state:any
+         * @param {payload: string} action:any
+         * @returns {object}
+         */
         CHANGE_MATERIAL: (state: any, action: any) => {
             const outObj = Object.assign({}, state)
             outObj._material = action.payload
@@ -57,17 +80,23 @@ const insertSlice = createSlice({
                 outObj
             )
         }
-
         ,
-        /** 
-        * Add full insert array into new state slice
-        * payload should have 4 indicies within an array
-        *   @Param {Array} | payload | [x, y, z, #, cost_of_insert] of inserts
-        **/ 
+
+        /**
+         * Pushes a new insert into the _inserts array within the state namespace
+         * @param {any} state:any
+         * @param {payload: string[]} action:any
+         *      @param {string[]} payload [X-axis, Y-axis, Z-axis, # of inserts]
+         * @returns {void}
+         */
         ADD_INSERT: (state: any, action: any) : void => {
             // Destructuring payload
             const { payload } = action
+
+            // Creates the cube inch Product from the axis fields of the payload
             const newCube = payload.reduce(((a: number, i:number) => a * i), 1)
+
+            // Calulates the total cost of the insert based on material and cube inches
             const insertTotal = _.add(
                 state._material === '6061 Aluminum'
                        ? newCube * .22
@@ -83,30 +112,32 @@ const insertSlice = createSlice({
                         ? 7 
                         : state._material === 'P20 STEEL' 
                         ? 9.9999999999 : 0
-           )
-           let _insertTotal = insertTotal * newCube + CNC_CALC(payload, state._material)*40
-            /**
-             * [
-             *  payload list [x, y , z, #],
-             *  x*y*z,
-             *  CNC_HOURS for insert,
-             *  Total for part,
-             *  Material Used
-             * ]
-             */
+           ) * newCube + CNC_CALC(payload, state._material) * 80
+
             const _ArrMat = _.split(state._material, ' ')[0] + ' ' + _.head(_.split(state._material, ' ')[1])
             const id = state._inserts.length === 0 ? 1 : state._inserts.length+1
 
+            /**
+             * push new insert into state._inserts array
+             * [
+             *  @param {number} ID: unique id for the insert
+             *  @param {number} XYZNUM  [x, y , z, #],
+             *  @param {number} AMT: Amount of inserts,
+             *  @param {number} CNC_HOURS Total amount of cnc hours needed,
+             *  @param {number} PPI Price per Insert,
+             *  @param {string} Material Used 6061 | 7075 | P20
+             * ]
+             */
             state._inserts.push(
                 {
                     ID: id,
-                    X: action.payload[0],
-                    Y: action.payload[1],
-                    Z: action.payload[2],
-                    AMT: action.payload[3],
+                    X: payload[0],
+                    Y: payload[1],
+                    Z: payload[2],
+                    AMT: payload[3],
                     CINCH: newCube,
                     CNC_HOURS: CNC_CALC(payload, state._material),
-                    PPI: _insertTotal,
+                    PPI: insertTotal,
                     MAT: _ArrMat
                 }
             )
