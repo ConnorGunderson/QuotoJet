@@ -30,24 +30,28 @@ export const dimensionPanels = [
                     <Form.Group>
                         <Form.Input 
                             placeholder='X' 
-                            control='input' 
+                            control='input'
+                            value=''
                             width={4}
                         />
                         <Form.Input 
                             placeholder='Y' 
-                            control='input' 
+                            control='input'
+                            value=''
                             width={4}
                         />
                     </Form.Group>
                     <Form.Group>
                         <Form.Input 
                             placeholder='Z' 
-                            control='input' 
+                            control='input'
+                            value=''
                             width={4}
                         />
                         <Form.Input 
                             placeholder='#' 
                             control='input' 
+                            value=''
                             width={4}
                         />
                     </Form.Group>

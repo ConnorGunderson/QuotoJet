@@ -44,6 +44,7 @@ export const Inserts = () => {
                         label={'Insert Material'}
                         onChange={(e) => handleChange(e)}
                         placeholder='Select Material'
+                        value={_material !== '' ? _material : undefined}
                         options={matOptions}
                     />
                 </Form.Group>
