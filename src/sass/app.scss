@@ -31,9 +31,10 @@ html, body, #app{
         }
         #quotoJet {
             height: 100px;
-            position: absolute;
-            top: 0;
-            left: 0;
+            padding: 10px;
+        }
+        #quotoIcon {
+            height: 100px;
             padding: 10px;
         }
     }

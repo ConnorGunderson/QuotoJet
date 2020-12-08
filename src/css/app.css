@@ -25,9 +25,9 @@ html, body, #app {
       color: white; }
     #main #quotoHeader #quotoJet {
       height: 100px;
-      position: absolute;
-      top: 0;
-      left: 0;
+      padding: 10px; }
+    #main #quotoHeader #quotoIcon {
+      height: 100px;
       padding: 10px; }
   #main #attachedMenu {
     position: relative; }
