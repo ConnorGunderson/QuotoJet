@@ -109,7 +109,10 @@ html, body, #app{
 }
 
 
-
+#noSelect {
+    color:none !important;
+    background-color: none;
+}
 
 input {
     box-sizing: border-box;

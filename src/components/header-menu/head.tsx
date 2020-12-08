@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import moment from 'moment'
-import { Container, Statistic, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import quotojet from '../../Images/quotojet.svg'
 
 export const QuotoHeader = () => {

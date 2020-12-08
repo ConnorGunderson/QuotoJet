@@ -70,5 +70,9 @@ html, body, #app {
           margin: 0 auto;
           padding: 10px; }
 
+#noSelect {
+  color: none !important;
+  background-color: none; }
+
 input {
   box-sizing: border-box; }

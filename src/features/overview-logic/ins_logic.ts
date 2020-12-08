@@ -11,11 +11,11 @@ const FNCS = {
 }
 
 const CNC_CALC = function(insertList:any, material:string) {
-    const [ x, y, z, num ] = insertList
+    const [X, Y, Z, NUM ] = insertList
     return (
         material === '6061 Aluminum' || '7075 Aluminum'
-            ? FNCS.ALUM(x, y, z, num)
-            : FNCS.P20(x, y, z, num)
+            ? FNCS.ALUM(X, Y, Z, NUM)
+            : FNCS.P20(X, Y, Z, NUM)
 
     )
 }
@@ -23,14 +23,16 @@ const CNC_CALC = function(insertList:any, material:string) {
 const defaultState = {
     _inserts: [
         /**
-         * @Params [
-         *  x,
-         *  y,
-         *  z,
-         *  amount,
+         * @Params Object: object [
+         *  ID,
+         *  X,
+         *  Y,
+         *  Z,
+         *  AMT,
+         *  CINCH,
          *  CNC_HOURS,
-         *  Price Per Insert,
-         *  material
+         *  PPI,
+         *  MAT
          * ]
          */
     ],
@@ -93,33 +95,40 @@ const insertSlice = createSlice({
              * ]
              */
             const _ArrMat = _.split(state._material, ' ')[0] + ' ' + _.head(_.split(state._material, ' ')[1])
+            const id = state._inserts.length === 0 ? 1 : state._inserts.length+1
 
-            state._inserts.push([
-                ...payload,
-                newCube,
-                CNC_CALC(payload, state._material),
-                _insertTotal,
-                _ArrMat
-            ])
+            state._inserts.push(
+                {
+                    ID: id,
+                    X: action.payload[0],
+                    Y: action.payload[1],
+                    Z: action.payload[2],
+                    AMT: action.payload[3],
+                    CINCH: newCube,
+                    CNC_HOURS: CNC_CALC(payload, state._material),
+                    PPI: _insertTotal,
+                    MAT: _ArrMat
+                }
+            )
             // Accumulate all previous values in the array for # of inserts
             // Join with the new value and return new state
-            state._sumInserts =  state._inserts.reduce(((acc:any, p:any) => acc + p[3]),0)
+            state._sumInserts =  state._inserts.reduce(((acc:any, p:any) => acc + p.AMT),0)
             // FNC_ALUM OR FNC_P20 DEPENDING ON _material
             // RETURN AMOUNT OF HOURS PER EVERY PART
             state._cncTotalHours +=  CNC_CALC(payload, state._material)
 
-            state._subtotal += _.last(state._inserts)[6]
+            state._subtotal += _.last(state._inserts).PPI
 
         },
         DELETE_LAST: (state:any, action:any) => {
             if (state._sumInserts > 0 && state._inserts.length > 0) {
                 const out = state._inserts.pop()
-                state._sumInserts -= out[3]
-                state._cncTotalHours -= out[5]
+                state._sumInserts -= out.AMT
+                state._cncTotalHours -= out.CNC_HOURS
                 if (state._inserts.length === 0) {
                     state._subtotal = 0                    
                 } else {
-                    state._subtotal -= out[6]
+                    state._subtotal -= out.PPI
                 }
             }
         }
