@@ -17,7 +17,7 @@ export const AttachedMenu = (props: Props) => {
   const handleClick = (e: any) => setActiveItem(e.target.innerText)
   return (
     <div id={props.id}>
-      <Menu attached='top' borderless >
+      <Menu pointing secondary  stackable>
         <Menu.Item
           key={1}
           name='Estimates'
@@ -32,22 +32,6 @@ export const AttachedMenu = (props: Props) => {
           position='left'
         />
         <Menu.Item
-          key={3}
-          id='company'
-          content={'COMPANY'}
-        />
-        <Menu.Item
-          key={4}
-          id='product'
-          content={'PRODUCT_NAME'}
-        />
-        <Menu.Item
-          key={5}
-          id='total'
-          content={'TOTAL'}
-          position='right'
-        />
-        <Menu.Item
           key={6}
           name='Settings'
           active={activeItem === 'Settings'}
@@ -55,7 +39,7 @@ export const AttachedMenu = (props: Props) => {
           position='right'
         />
       </Menu>
-      <Segment attached='bottom' id='mainSegment' basic padded>
+      <Segment id='mainSegment' basic padded>
         {
             activeItem === 'Estimates'
           ? <EstimateApp id={'estimate'} />

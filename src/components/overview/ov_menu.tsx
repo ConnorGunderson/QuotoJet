@@ -32,7 +32,7 @@ export const QuoteSelectionMenu = (props:any) => {
   
   return (
     <div>
-      <Menu text>
+      <Menu stackable text>
         {
           nameList.map((i: any, index: any) => {
             return (

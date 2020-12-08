@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
 import moment from 'moment'
-import { Container, Statistic } from 'semantic-ui-react'
+import { Container, Statistic, Image } from 'semantic-ui-react'
 import quotojet from '../../Images/quotojet.svg'
-// import quotoicon from '../../Images/Icon.svg'
 
 export const QuotoHeader = () => {
     const [time, setTime] = useState(moment().format('MMMM Do YYYY, h:mm:ss A'))
@@ -19,14 +18,13 @@ export const QuotoHeader = () => {
     }
     
     return (
-        <Container as={'section'} id={'quotoHeader'}>
-            <img  id='quotoJet' src={quotojet} alt='quotoQuote' />
-            {/* <img src={quotoicon} id='quotoIcon'/> */}
-            <Statistic floated='right' >
-                <div id="timer">
-                    {time}
-                </div>
-            </Statistic>
-        </Container>
+        <div id={'quotoHeader'}>
+            <div>
+                <Image  spaced size='small' id='quotoJet' src={quotojet} alt='quotoQuote' />
+            </div>
+            <div id="timer">
+                {time}
+            </div>
+        </div>
     )
 }

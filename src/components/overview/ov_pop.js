@@ -15,7 +15,7 @@ const nameList = [
 ]
 
 const Wrapper = (props) => {
-  return <Grid.Column stretched computer={2} widescreen={2} tablet={props.tablet} largeScreen={2} mobile={16}>{props.children}</Grid.Column>
+  return <Grid.Column stretched computer={6} widescreen={2} tablet={props.tablet} largeScreen={2} mobile={16}>{props.children}</Grid.Column>
 }
 
 export const OverviewContent = (props) => {
@@ -31,7 +31,7 @@ export const OverviewContent = (props) => {
           {_tabList.length > 0 ? useList.map((i) => {
             return (
                 i === nameList[0]
-                ? <Grid.Column stretched computer={2} widescreen={2}  tablet={_tabList.length === 1 ? 16 : 4} largeScreen={2} mobile={16}><PartOverall/></Grid.Column>
+                ? <Grid.Column stretched computer={6} widescreen={2}  tablet={_tabList.length === 1 ? 16 : 4} largeScreen={2} mobile={16}><PartOverall/></Grid.Column>
                 : i === nameList[1]
                 ? <Wrapper tablet={_tabList.length === 1 ? 16 : 4}><Inserts/></Wrapper>
                 : i === nameList[2]
@@ -41,7 +41,7 @@ export const OverviewContent = (props) => {
                 : i === nameList[4]
                 ? <Wrapper tablet={_tabList.length === 1 ? 16 : 4}><UniMan/></Wrapper>
                 : i === nameList[5]
-                ? <Grid.Column stretched computer={5} widescreen={t(1) ? 16 : t(2) ? 14 : t(3) ? 12 : t(4) ? 10 : t(5) ? 8 : t(6) ? 6 : undefined} tablet={_tabList.length === 1 ? 16 : 12} largeScreen={6} mobile={16}><Breakdown /></Grid.Column>
+                ? <Grid.Column stretched computer={10} widescreen={t(1) ? 16 : t(2) ? 14 : t(3) ? 12 : t(4) ? 10 : t(5) ? 8 : t(6) ? 6 : undefined} tablet={_tabList.length === 1 ? 16 : 12} largeScreen={6} mobile={16}><Breakdown /></Grid.Column>
                 : null
             )
           }):null}
