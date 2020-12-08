@@ -8,7 +8,6 @@ import _ from 'lodash'
 export const Breakdown = () => {
     const [active, setActive] = useState(true)
     const { _inserts } = useSelector((state:RootStateOrAny) => state.insert)
-    console.log(_inserts.map((i:any) => i[3]))
     return (
         <Baseline title='Breakdown'>
             <Accordion
