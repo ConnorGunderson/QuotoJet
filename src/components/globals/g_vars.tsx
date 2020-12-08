@@ -31,13 +31,11 @@ export const dimensionPanels = [
                         <Form.Input 
                             placeholder='X' 
                             control='input'
-                            value=''
                             width={4}
                         />
                         <Form.Input 
                             placeholder='Y' 
                             control='input'
-                            value=''
                             width={4}
                         />
                     </Form.Group>
@@ -45,13 +43,11 @@ export const dimensionPanels = [
                         <Form.Input 
                             placeholder='Z' 
                             control='input'
-                            value=''
                             width={4}
                         />
                         <Form.Input 
                             placeholder='#' 
                             control='input' 
-                            value=''
                             width={4}
                         />
                     </Form.Group>
