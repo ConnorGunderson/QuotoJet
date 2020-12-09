@@ -6,14 +6,12 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import _ from 'lodash'
 
-
-// Save state to local storage
-
+// Save state to local storage 1000 second intervals to prevent overload
 store.subscribe(_.throttle(() => {
   localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 }),1000);
 
-
+// subscribe store to various store components
 store.subscribe(() => {
   saveState({
     insert: store.getState().insert,
@@ -23,6 +21,7 @@ store.subscribe(() => {
   })
 })
 
+// Load app into window 
 ReactDOM.hydrate(
   <React.StrictMode>
     <Provider store={store}>

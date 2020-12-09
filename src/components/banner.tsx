@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import moment from 'moment'
 import { Image } from 'semantic-ui-react'
-import quotojet from '../../Images/quotojet.svg'
+import quotojet from '../Images/quotojet.svg'
 
-export const QuotoHeader = () => {
+export const Banner = () => {
     const [time, setTime] = useState(moment().format('MMMM Do YYYY, h:mm:ss A'))
 
     React.useEffect(() => {

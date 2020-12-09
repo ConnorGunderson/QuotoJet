@@ -3,7 +3,7 @@ import { Accordion, Table } from 'semantic-ui-react'
 import { breakdownPanels } from '../../globals/g_vars'
 import { RootStateOrAny, useSelector } from 'react-redux'
 import { useEffect, useState }  from 'react'
-import { SortHook } from '../../../features/misc-logic/ov_sort'
+import { SortHook } from '../../../logic/misc-logic/ov_sort'
 import _ from 'lodash'
 
 export const Breakdown = () => {

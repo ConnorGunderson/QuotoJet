@@ -97,24 +97,28 @@ const insertSlice = createSlice({
             const newCube = payload.reduce(((a: number, i:number) => a * i), 1)
 
             // Calulates the total cost of the insert based on material and cube inches
+            // Calculates the initial cost as well and the price per hours
             const insertTotal = _.add(
-                state._material === '6061 Aluminum'
+                    state._material === '6061 Aluminum'
                        ? newCube * .22
                        : state._material === '7075 Aluminum'
                        ? newCube * .375
                        : state._material === 'P20 Steel'
                        ? newCube * 1.06125
                        : 0
-                   ,
+                    ,
                         state._material === '6061 Aluminum'
                         ? 5 
                         : state._material === '7075 Aluminum' 
                         ? 7 
                         : state._material === 'P20 STEEL' 
                         ? 9.9999999999 : 0
-           ) * newCube + CNC_CALC(payload, state._material) * 80
+                ) * newCube + CNC_CALC(payload, state._material) * 80
 
+            // Array material extracted from state for new insert array
             const _ArrMat = _.split(state._material, ' ')[0] + ' ' + _.head(_.split(state._material, ' ')[1])
+
+            // UID for insert added
             const id = state._inserts.length === 0 ? 1 : state._inserts.length+1
 
             /**
@@ -141,13 +145,13 @@ const insertSlice = createSlice({
                     MAT: _ArrMat
                 }
             )
-            // Accumulate all previous values in the array for # of inserts
-            // Join with the new value and return new state
+            // Sum all current inserts within the _inserts array and update state
             state._sumInserts =  state._inserts.reduce(((acc:any, p:any) => acc + p.AMT),0)
-            // FNC_ALUM OR FNC_P20 DEPENDING ON _material
-            // RETURN AMOUNT OF HOURS PER EVERY PART
+            
+            // Total hours needed to finish all inserts
             state._cncTotalHours +=  CNC_CALC(payload, state._material)
-
+            
+            // Cost for all operations
             state._subtotal += _.last(state._inserts).PPI
 
         },

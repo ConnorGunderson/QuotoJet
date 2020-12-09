@@ -1,8 +1,8 @@
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
-import { SHOW_TAB, HIDE_TAB } from '../../features/overview-logic/visual_logic'
+import { SHOW_TAB, HIDE_TAB } from '../../logic/overview-logic/visual_logic'
 
-
+// Components to render
 const nameList = [
   'Unitized Manifolds',
   'Special Tools',
@@ -12,13 +12,10 @@ const nameList = [
   'Breakdown'
 ]
 
-
 export const QuoteSelectionMenu = (props:any) => {
   const { _tabList } = useSelector((state: RootStateOrAny) => state.tabs)
+  
   const dispatch = useDispatch()
-  
-  
-
 
   const handleItemClick =  (e : any) => {
     e.preventDefault()

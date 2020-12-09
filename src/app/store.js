@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import manifoldReducer from '../features/overview-logic/man_logic'
-import insertReducer from '../features/overview-logic/ins_logic'
-import visReducer from '../features/overview-logic/visual_logic'
-import settingsReducer from '../features/settings_logic'
+import manifoldReducer from '../logic/overview-logic/man_logic'
+import insertReducer from '../logic/overview-logic/ins_logic'
+import visReducer from '../logic/overview-logic/visual_logic'
+import settingsReducer from '../logic/settings_logic'
 
+
+// Combine all reducer logic into one root reducer
 const rootReducer = combineReducers({
   manifold: manifoldReducer,
   settings: settingsReducer,
@@ -11,6 +13,8 @@ const rootReducer = combineReducers({
   tabs: visReducer,
 })
 
+
+// Load state from local storage and serial for use
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state')
@@ -25,11 +29,15 @@ export const loadState = () => {
   }
 }
 
+
+// create store
 const store = configureStore({
   reducer: rootReducer,
   preloadedState: loadState()
 })
 
+
+// Saves state into local storage for data persistence
 export const saveState = state => {
   try {
     const serializedState = JSON.stringify(state);
@@ -38,14 +46,5 @@ export const saveState = state => {
     console.log(e)
   }
 }
-
-
-
-
-
-
-
-
-
 
 export default store;

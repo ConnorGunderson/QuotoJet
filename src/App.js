@@ -1,15 +1,17 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import './css/app.css'
-import { AttachedMenu } from './components/header-menu/app_bar'
-import { QuotoHeader } from './components/header-menu/head'
+import { MainMenu } from './components/main_menu'
+import { Banner } from './components/banner'
 
+// Main app component
 function App() {
   return (
       <div as={'main'} id='main' >
-        <QuotoHeader />
-        <AttachedMenu id={'attachedMenu'} />
+        <Banner />
+        <MainMenu id={'attachedMenu'} />
       </div>
   );
 }
+
 export default App;

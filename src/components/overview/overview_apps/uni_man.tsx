@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Segment, Form, Divider, Checkbox } from 'semantic-ui-react'
 import { Baseline } from '../ov_baseline'
-import { enableValve, disableValve, alterDrops } from '../../../features/overview-logic/man_logic'
+import { enableValve, disableValve, alterDrops } from '../../../logic/overview-logic/man_logic'
 
 
 export const UniMan = () => {

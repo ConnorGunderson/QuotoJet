@@ -1,4 +1,4 @@
-import { OverviewContent } from '../../overview/ov_pop'
+import { OverviewContent } from '../overview/ov_pop'
 import { Container } from 'semantic-ui-react'
 
 export function QuoteOverviewApp(props : any) {
