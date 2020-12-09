@@ -18,7 +18,10 @@ export const Inserts = () => {
         }
     )
     const dispatch = useDispatch()
+
     const handleChange = (e: any) => dispatch(CHANGE_MATERIAL(e.target.textContent))
+
+    // Add an insert
     const addInsert = (e: any) => {
         e.preventDefault()
         let arr: any = []
@@ -30,14 +33,16 @@ export const Inserts = () => {
             dispatch(ADD_INSERT(arr))
         }
     }
+
+    // Delete an insert
     const delInsert = (e:any) =>  {
         e.preventDefault()        
         dispatch(DELETE_LAST(''))
     }
+
     return (
         <Baseline title='Inserts'>
             <Form>
-                
                 <Form.Group>
                     <Form.Select
                         fluid
